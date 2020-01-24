@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
             instance = this;
         }
         #endregion
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SwitchActivePanel(GameObject panel)

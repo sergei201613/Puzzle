@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - BlockingLayer
-  - 
+  - BoxLayer
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Stars
+    uniqueID: 3897479491
     locked: 0

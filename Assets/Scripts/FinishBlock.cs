@@ -10,7 +10,7 @@ public class FinishBlock : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MainBlock") && !win)
         {
-            StartCoroutine(GameManager.instance.PlayerWon());
+            StartCoroutine(GameMode.instance.PlayerWon());
             win = true;
         }
     }

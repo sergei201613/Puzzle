@@ -45,5 +45,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: 
   data:
-    levelsOpennes: 010000000000
+    levelsData:
+    - isOpen: 0
+      numberOfStars: 0
+    - isOpen: 0
+      numberOfStars: 0
+    - isOpen: 0
+      numberOfStars: 0
+    - isOpen: 0
+      numberOfStars: 0
+    - isOpen: 0
+      numberOfStars: 0
+    - isOpen: 0
+      numberOfStars: 0
     lastLevel: 1

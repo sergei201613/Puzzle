@@ -6,55 +6,62 @@ public class Box : MonoBehaviour
 {
     public LayerMask BlockingLayer;
     public float speed;
+    public bool isMove = false;
 
-    private BoxCollider2D boxCollider;
-    private Vector2 targetPos;
-    private RaycastHit2D hit;
-    private Vector2 dir = Vector2.down;
-    private bool move = false;
+    private Vector3 targetPos;
     private Vector3 lastPos;
+    private Vector2 dir = Vector2.zero;
+
+    private RaycastHit2D hit;
     private Transform transformComp;
 
     void Awake()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
+        transformComp = GetComponent<Transform>();
+
         targetPos = transform.position;
         lastPos = transform.position;
-        transformComp = GetComponent<Transform>();
     }
 
     void Update()
     {
-        boxCollider.enabled = false;
-        hit = Physics2D.Raycast(transformComp.position, dir, Mathf.Infinity, BlockingLayer);
-        boxCollider.enabled = true;
-
-        targetPos = hit.point - (dir * 0.5f);
         MoveToTargetUpdate();
-
-        if (lastPos == transformComp.position)
-        {
-            move = false;
-        }
-        lastPos = transformComp.position;
-
-        Debug.DrawLine(transformComp.position, targetPos, Color.green, 5f);
     }
 
     private void MoveToTargetUpdate()
     {
-        if (move)
+        CalculateTargetPos();
+
+        transformComp.position = Vector3.
+            MoveTowards(transformComp.position, targetPos, speed * Time.deltaTime);
+
+        if (lastPos == transformComp.position)
         {
-            transformComp.position = Vector2.MoveTowards(transformComp.position, targetPos, speed * Time.deltaTime);
+            isMove = false;
         }
+        else
+        {
+            isMove = true;
+        }
+
+        lastPos = transformComp.position;
     }
 
     public void MoveBox(Vector2 newDir)
     {
-        if (!move)
-        {
-            move = true;
-            dir = newDir;
-        }
+        dir = newDir;
+        isMove = true;
+    }
+
+    private void CalculateTargetPos()
+    {
+        gameObject.layer = 0;
+        hit = Physics2D.Raycast(transformComp.position, dir, 30f, BlockingLayer);
+        gameObject.layer = 9;
+
+        if (dir != Vector2.zero)
+            targetPos = hit.point - (dir * 0.5f);
+        else
+            targetPos = transformComp.position;
     }
 }

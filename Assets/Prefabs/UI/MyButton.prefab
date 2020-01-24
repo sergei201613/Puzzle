@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 585238543626914492}
   - component: {fileID: 585238543626914495}
   - component: {fileID: 585238543626914494}
+  - component: {fileID: 1586184489097124251}
   m_Layer: 5
   m_Name: MyButton
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: LoadLastLevel
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,6 +134,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1586184489097124251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585238543626914488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7db7f872e21c5c45b241d6b923c8644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 88d8192a6649c2f4abba3fa87728cbbe, type: 3}
 --- !u!1 &5352053404405195741
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +213,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1c3f78bdd87b17a43b3c4134b3292793, type: 3}
+    m_Font: {fileID: 12800000, guid: 464d58bd12936804098abf3b59a8c38e, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0

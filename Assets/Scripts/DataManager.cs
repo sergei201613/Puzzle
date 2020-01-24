@@ -11,11 +11,18 @@ public class DataManager : MonoBehaviour
 
     public string path;
 
+    // Data for save.
     [Serializable]
     public class Data
     {
-        public List<bool> levelsOpennes = new List<bool>();
+        public List<LevelData> levelsData = new List<LevelData>();
         public int lastLevel = 1;
+        [Serializable]
+        public class LevelData
+        {
+            public bool isOpen = false;
+            public byte numberOfStars = 0;
+        }
     }
     public Data data;
 
@@ -43,9 +50,10 @@ public class DataManager : MonoBehaviour
         {
             data = LoadJSON.LoadObject<Data>(path);
         }
+        data.levelsData[0].isOpen = true;
     }
 
-    private void OnApplicationQuit()
+    public void SaveGame()
     {
         SaveJSON.SaveObject(data, path);
     }

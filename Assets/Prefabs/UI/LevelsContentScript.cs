@@ -7,11 +7,12 @@ public class LevelsContentScript : MonoBehaviour
     private int countOfLevels = 0;
 
     public GameObject levelButtonUI;
+
     public List<GameObject> btns = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
-        countOfLevels = DataManager.instance.data.levelsOpennes.Count;
+        countOfLevels = DataManager.instance.data.levelsData.Count;
 
         for (int i = 1; i <= countOfLevels; i++)
         {
@@ -27,7 +28,7 @@ public class LevelsContentScript : MonoBehaviour
     {
         for (int i = 2; i <= countOfLevels; i++)
         {
-            btns[i-1].SendMessage("SetIsOpen", DataManager.instance.data.levelsOpennes[i - 1]);
+            btns[i-1].SendMessage("SetIsOpen", DataManager.instance.data.levelsData[i - 1].isOpen);
         }
     }
 

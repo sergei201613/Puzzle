@@ -1,27 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public void Down()
-    {
-        GameManager.instance.MoveAllBoxesDown();
-    }
 
-    public void Up()
-    {
-        GameManager.instance.MoveAllBoxesUp();
-    }
+    public Text timeText;
 
-    public void Left()
+    private void Update()
     {
-        GameManager.instance.MoveAllBoxesLeft();
-    }
-    
-    public void Right()
-    {
-        GameManager.instance.MoveAllBoxesRight();
+        if (!GameMode.instance.gameIsEnd)
+        {
+            timeText.text = "time: " + Mathf.Floor(Time.timeSinceLevelLoad).ToString();
+        }
     }
 
     public void Menu()
