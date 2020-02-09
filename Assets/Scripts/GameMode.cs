@@ -19,6 +19,9 @@ public class GameMode : MonoBehaviour
     public byte minCompleteTime = 10;
     public bool starIsTaked = false;
 
+    public delegate void MoveMox(Vector2 dir); 
+    public event MoveMox MoveBoxEvent;
+
     void Awake()
     {
         #region singleton
@@ -42,7 +45,7 @@ public class GameMode : MonoBehaviour
         boxes.AddRange(FindObjectsOfType<Box>());
     }
 
-    public void MoveAllBoxes(Vector2 dir)
+    public bool MoveAllBoxes(Vector2 dir)
     {
         if (boxControllEnabled)
         {
@@ -53,7 +56,7 @@ public class GameMode : MonoBehaviour
                 if (i.isMove)
                 {
                     canMove = false;
-                    return;
+                    return canMove;
                 }
             }
 
@@ -64,7 +67,14 @@ public class GameMode : MonoBehaviour
             }
 
             SoundManager.instance.PlaySound(moveClip);
+            if (MoveBoxEvent != null) { MoveBoxEvent.Invoke(dir); }
+
+            return canMove;
         }
+        else
+        {
+            return false;
+        }  
     }
 
     public IEnumerator PlayerWon()

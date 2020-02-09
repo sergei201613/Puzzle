@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
+    public AudioSource backGroundAudio;
+
     private AudioSource audioSource;
 
     private void Awake()
@@ -23,6 +25,12 @@ public class SoundManager : MonoBehaviour
         #endregion
         DontDestroyOnLoad(gameObject);
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        // Load volume.
+        backGroundAudio.volume = PlayerPrefs.GetFloat("BGMVolume");
     }
 
     public void PlaySound(AudioClip clip)

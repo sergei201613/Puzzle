@@ -38,10 +38,10 @@ public class MenuManager : MonoBehaviour
         if (activePanel != null)
             panel.SetActive(true);
 
-        if (activePanel != mainMenuPanel)
+        /*if (activePanel != mainMenuPanel)
             AdManager.instance.HideBanner();
         else
-            AdManager.instance.ShowBanner();
+            AdManager.instance.ShowBanner();*/
     }
 
     public void OpenWinPanel()
@@ -57,5 +57,10 @@ public class MenuManager : MonoBehaviour
     public void LoadLastLevel()
     {
         SceneManager.LoadScene(DataManager.instance.data.lastLevel);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

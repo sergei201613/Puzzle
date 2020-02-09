@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-
     public Text timeText;
 
     private void Update()

@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 35e14c3134bed014bb905d377e584323, type: 3}
-  m_Color: {r: 0.495283, g: 1, b: 0.72741455, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6d1d4820d95e4f14baabc2bc0179523d, type: 3}
+  m_Color: {r: 0.8820755, g: 0.9092888, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
     m_Bits: 768
   speed: 15
   isMove: 0
-  audioSource: {fileID: -8540290632449198512}
 --- !u!61 &520196246740152680
 BoxCollider2D:
   m_ObjectHideFlags: 0

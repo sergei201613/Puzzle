@@ -58,4 +58,6 @@ MonoBehaviour:
       numberOfStars: 0
     - isOpen: 0
       numberOfStars: 0
+    - isOpen: 0
+      numberOfStars: 0
     lastLevel: 1

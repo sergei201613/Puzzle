@@ -7,7 +7,7 @@ public class AdManager : MonoBehaviour
 {
     public static AdManager instance;
 
-    public bool testMode = true;
+    public bool testMode = false;
 
     private string gameID = "3257979";
     private string bannerID = "banner";
@@ -31,6 +31,11 @@ public class AdManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         Advertisement.Initialize(gameID, testMode);
+        ShowBanner();
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
         ShowBanner();
     }
 
